@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex,nofollow" />
   <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" href="css/default.css" />
-  <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
   <style type="text/css">
   
     .masthead{
@@ -35,6 +35,15 @@
 	display:inline-block;
 	margin-left:5%;
 }
+
+    li.seasons a {
+       /* color: red; */
+    }
+
+    header > h3{
+        /*background-color: yellow;*/
+    }
+
   </style>
  </head>
  <body>
@@ -63,27 +72,101 @@
             <li>Winter: <b>#005393</b></li>
         </ul>
     </p>
-    <p>
-    Aesthetic gentrify YOLO McSweeney's typewriter single-origin coffee. Slow-carb hella listicle lomo, Helvetica single-origin coffee butcher stumptown. Chambray try-hard church-key mumblecore, tote bag PBR cardigan. Retro Austin Brooklyn, blog Intelligentsia gentrify jean shorts sartorial bicycle rights gastropub. Aesthetic wayfarers Pitchfork, tattooed Carles quinoa meh leggings distillery pork belly banjo. Umami cred lumbersexual skateboard, pork belly Tumblr vegan letterpress. Fixie bicycle rights butcher chillwave, gluten-free health goth Echo Park locavore whatever.
+
+    <p>This website uses jQuery, and creates a page that promotes a unique look and feel for each of the four seasons. Using jQuery, the background color, the logo, the clothing, and the colored string of text are all unique to the different seasons.</p>
     <img src="images/300x400.png" alt="Season Wear Goes Here" id="wear" />
-    </p>
-    <p>
-    Gluten-free selfies normcore chillwave. Listicle 90's chambray, seitan cold-pressed try-hard Etsy authentic flexitarian vinyl. Meditation bespoke freegan, single-origin coffee cred seitan 90's gentrify brunch Williamsburg squid cold-pressed. Brooklyn readymade Tumblr wayfarers ethical. Biodiesel VHS Godard High Life, tousled Banksy craft beer. Mlkshk direct trade locavore, mumblecore keytar artisan hashtag fap. Cred cronut Brooklyn, locavore art party small batch PBR semiotics ennui kitsch taxidermy mlkshk stumptown.
-    </p>
-    <p>
-    Polaroid iPhone plaid, Pitchfork Shoreditch paleo. Hashtag keytar chia scenester Pinterest, semiotics tousled food truck. YOLO scenester deep v, taxidermy paleo quinoa McSweeney's Carles VHS mustache Williamsburg gluten-free readymade cold-pressed. Truffaut Thundercats Schlitz, listicle organic Brooklyn paleo squid asymmetrical readymade migas gluten-free Austin. Etsy Wes Anderson 8-bit retro, polaroid synth paleo banh mi before they sold out Vice. Bushwick fap Intelligentsia, whatever Etsy High Life Kickstarter migas retro Banksy YOLO Carles yr raw denim. Gluten-free fixie taxidermy pop-up, actually Kickstarter flannel put a bird on it master cleanse.
-    </p>
-    <p>
-    Text provided by <a href="http://hipsum.co/" target="_blank">Hipster Ipsum</a>
     </p>
     <footer>
     <p><small>&copy; 2021 by 
-        YOUR NAME HERE, All Rights Reserved ~ 
+        Tani Cha, All Rights Reserved ~ 
         <a id="html-checker" href="#">Check HTML</a> ~ 
         <a id="css-checker" href="#">Check CSS</a></small>
     </p>
     </footer>
   </main>
   <script src="js/main.js"></script>
-  </body>
+
+  <script>
+        $('document').ready(function(){
+           // $("li.seasons a").css("color","orange");   
+
+
+ /*
+ Change pic with an id of logo to season 
+ Change pic with an id of wear to clothing
+*/
+           
+           $("li.seasons a").click(function(e){
+               e.preventDefault();
+
+    let season = $(this).attr("href"); 
+
+    season = season.toLowerCase();
+    
+    switch (season) {
+					case "spring":
+						$("#logo").attr("src", "images/spring.gif");
+						$("#wear").attr("src", "images/spring-wear.jpg");
+						$("html").css("background-color", "#2B7129");
+                        $("header > h3").css('color', '#2B7129');
+						$("main header h3").html("I Love The Spring Time! Best Season For Vests!");
+                        alert(season);
+						break;
+					case "summer":
+						$("#logo").attr("src", "images/summer.gif");
+						$("#wear").attr("src", "images/summer-wear.jpg");
+						$("html").css("background-color", "#EBA52B");
+                        $("header > h3").css('color', '#EBA52B');
+						$("main header h3").html("So Hot! Light Clothing Is Best!");
+                        alert(season);
+						break;
+					case "winter":
+						$("#logo").attr("src", "images/winter.gif");
+						$("#wear").attr("src", "images/winter-wear.jpg");
+						$("html").css("background-color", "#005393");
+                        $("header > h3").css('color', '#005393');
+						$("main header h3").html("Brrr! I Love Snow! This Jacket Is Perfect!");
+                        alert(season);
+						break;
+					case "fall":
+						$("#logo").attr("src", "images/fall.gif");
+						$("#wear").attr("src", "images/fall-wear.jpg");
+						$("html").css("background-color", "#A81124");
+                        $("header > h3").css('color', '#A81124');
+						$("main header h3").html("Look At The Pretty Leaves! Perfect Outfit!");
+                        alert(season);
+						break;
+					default:
+						$("#logo").attr('src', 'images/four-seasons.gif');
+						$("#wear").attr('src', 'images/300x400.png');
+						$("html").css("background-color", "#D3D3D3");
+						$("main header h3").html("Outfitter for All Seasons!");
+                        alert(season);
+						break;
+            }
+            }); 
+
+
+      
+          /* $("li.seasons a").click(function(e){
+               e.preventDefault();
+
+               let season = $(this).attr("href");
+
+                $("#wear").attr('src','images/spring-wear.jpg');
+
+                $("#logo").attr('src','images/spring.gif');
+
+                $("header > h3").css('color', '#2B7129');
+
+                $('html').css('background-color','#2B7129')
+    
+
+               alert(season);
+          }); */
+
+      });
+  </script>
+
+</body>
 </html>
